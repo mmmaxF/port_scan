@@ -17,8 +17,4 @@ services:
       - NET_ADMIN
       - NET_RAW
 
-    # ふつうはこれでOK（bridge）
-    # network_mode: "bridge"
-
-    # コンテナを落とさずに常駐させたい場合（bash待ち）
     command: ["/bin/bash"]

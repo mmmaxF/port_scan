@@ -14,3 +14,5 @@ MacはLinuxカーネルではないので
     docker-compose build
 5. アップ
     docker-compose up -d
+6. 中に入る
+    docker-compose exec kali bash
