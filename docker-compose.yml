@@ -1,0 +1,24 @@
+services:
+  kali:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: my-kali:latest
+    container_name: kali
+    tty: true
+    stdin_open: true
+
+    # ホストの作業ディレクトリを /work に共有
+    volumes:
+      - ./work:/work
+
+    # パケット系ツールを使う場合に必要になりがちな権限（最小寄り）
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+    # ふつうはこれでOK（bridge）
+    # network_mode: "bridge"
+
+    # コンテナを落とさずに常駐させたい場合（bash待ち）
+    command: ["/bin/bash"]
